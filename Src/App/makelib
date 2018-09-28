@@ -1,0 +1,83 @@
+#!/bin/sh
+# Compile the following libs
+
+
+#sed 's/TOOL_GNU = 1/TOOL_GNU = 0/' ../../Tools/tool_chain.def > temp
+#mv -f temp ../../Tools/tool_chain.def
+
+cd ../../Src/App/cJSON
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/dhcpserver
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/dnsserver
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/httpclient
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/matrixssl
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/web
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/wm_atcmd
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/ntp
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/oneshotconfig
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/iperf
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/App/ping
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -

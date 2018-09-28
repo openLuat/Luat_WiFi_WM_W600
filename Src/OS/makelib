@@ -1,0 +1,20 @@
+#!/bin/sh
+# Compile the following libs
+
+
+#sed 's/TOOL_GNU = 1/TOOL_GNU = 0/' ../../Tools/tool_chain.def > temp
+#mv -f temp ../../Tools/tool_chain.def
+
+cd ../../Src/OS/RTOS
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -
+
+cd ../../Src/OS/uCOS-II
+make clean;make;
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+cd -

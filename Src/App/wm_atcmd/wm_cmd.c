@@ -1,0 +1,9 @@
+#ifndef WM_CMD_COMPILE_FILE
+#define WM_CMD_COMPILE_FILE
+#include "../Src/App/wm_atcmd/wm_rmms.c"
+#include "../Src/App/wm_atcmd/wm_cmdp.c"
+#include "../Src/App/wm_atcmd/wm_cmdp_hostif.c"
+#include "../Src/App/wm_atcmd/wm_cmdp_ri.c"
+#include "../Src/App/wm_atcmd/wm_hspi_task.c"
+#include "../Src/App/wm_atcmd/wm_uart_task.c"
+#endif //WM_CMD_COMPILE_FILE

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- DW6 -->
+<head>
+<!-- Copyright 2005 Macromedia, Inc. All rights reserved. -->
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Basic Configuration&nbsp;</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script type="text/JavaScript">
+<!--
+function Restart()
+{        
+	if(confirm('Are you sure to restart system?'))
+	{
+	   document.BasicRestart.submit();
+	} 
+}
+function saveconfig()
+{
+	if(confirm('Are you sure to save?\n'))
+	{
+		return true;	  
+	}	  
+	else
+	{
+		return false;
+	}	
+}
+//-->
+function key()
+{
+	var objEncry = document.getElementById("Encry").value;	
+  
+	if(objEncry == 0)	// open
+	{
+		document.all.KeyType.disabled=true;
+		document.all.Key.disabled=true;
+	}
+	else	//web64 web128
+	{
+		document.all.KeyType.disabled = false;
+		document.all.Key.disabled = false;
+	}
+}
+function mode()
+{
+	var obj=document.all.Mode.value;
+	if(obj==0)	// sta
+	{
+		document.all.Encry.disabled=true;
+		document.all.KeyType.disabled=true;
+		document.all.Key.disabled=false;
+	}
+	else	// ap adhoc
+	{
+		document.all.Encry.disabled=false;
+		key();
+	}	
+}
+</script>
+</head>
+<body>
+<div id="pagecell1" style="width:800;height=800" align="center">
+  <!--pagecell1-->
+  <div style="background-color:#CCCCCC">&nbsp;</div>
+  <div id="pageName">
+    <h2>Basic </h2>
+  </div>
+  <div id="pageNav">
+    <div id="sectionLinks"> <a href="hedbasic.html">Basic </a> <a href="hedfirmware.html">System </a></div>
+	<p></p>
+	<div id="advert">
+	<p align="left">·Wireless Settings: Wireless settings is the basic step for you to use the wifi module. The encryption can guarantee the security of your data.</p>
+	</div>
+  </div>
+  <div id="content">
+  <form id="form1" name="form1" method="get" action="">
+    <div class="story"> 
+      <h3 style="background-color:#666666">Wireless Settings</h3>
+      <table width="500" border="0" cellpadding="0" cellspacing="5">
+      
+      </tr>
+		  <tr><td height="10" colspan="2"></td></tr>
+		  <tr>
+          
+          <tr>
+             <td align="right">Mac Address ：</td>
+          <td align="left"><label>
+            <input name="MAC Address" type="text" id="MacAdr" value="0" readonly="readonly" disabled="disabled"/></label>
+          </td>
+          
+          </tr>
+        <tr valign="middle">
+          <td align="right" valign="middle">Work Type：</td>
+          <td width="295" align="left"><label>
+            <select name="Mode" size="1" id="Mode" onChange="mode()" > <option value="0" selected="selected">Sta</option>  <option value="1">Adhoc</option> <option value="2">AP</option>
+              </select>
+            </label></td>
+        </tr>
+		  <tr>
+            <td align="right" valign="middle">SSID：</td>
+            <td width="295" align="left" valign="middle"><label>
+              <input name="Ssid" type="text"  id="Ssid" value="noos" size="30" maxlength="32" />
+            </label>
+			<label><input name="ApEnable" type="hidden"  id="ApEnable" value="0"/></label>
+			</td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Encryption：</td>
+            <td align="left" valign="middle"><label>
+              <select name="Encry" size="1" id="Encry" onchange="key()"  > <option value="0" >Disable</option> <option value="1" selected="selected">WEP64</option> <option value="2" >WEP128</option> <option value="3">WPA-PSK(TKIP)</option> <option value="4">WPA-PSK(CCMP)</option> <option value="5">WPA2-PSK(TKIP)</option> <option value="6">WPA2_PSK(CCMP)</option>
+			  				</select>
+            </label></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Key Format：</td>
+            <td align="left" valign="middle"><label>
+              <select name="KeyType" size="1" id="KeyType" ><option value="0" selected="selected">HEX</option> <option value="1">ASCII</option>
+              </select>
+            </label></td>
+          </tr>
+          <tr>
+            <td align="right" valign="middle">Encryption Key：</td>
+            <td align="left" valign="middle"><label>
+              <input name="Key" type="text" id="Key" value="" size="30" maxlength="63"  />
+            </label></td>
+          </tr>
+		  <tr><td height="10" colspan="2"></td></tr>
+		  <tr>
+            <td height="20" colspan="2" align="center" valign="top">
+              <label>
+                <input name="Save" type="submit" id="Save" onclick="return saveconfig()" value="Save" />
+              </label>&nbsp;&nbsp;
+          </td>
+          </tr>
+        </table>
+    </div>
+  </form>
+  <form id="BasicRestart" name="BasicRestart" method="get" action="">
+  <div class="story"> 
+      <h3 style="background-color:#666666">System Restart</h3>
+       <table width="500" border="0" cellpadding="0" cellspacing="5">
+       
+      <tr><td height="10" colspan="2"></td></tr>
+      
+      <tr>
+          <td height="20" colspan="4" align="center" valign="top">
+		  		<label>
+		  					<input name="restart" type="hidden" value="1" />
+                <input type="button" id="restart" onClick="Restart()" value="Restart System" />
+          </label>&nbsp;&nbsp;
+          </td>
+      </tr>
+    </table>    
+   </div>   
+   </form>
+  <form id="form1" name="form1" method="get" action="">
+  </form>
+  </div>
+  <div id="siteInfo">Copyright 2010-2013 </div>
+</div>
+<!--end pagecell1-->
+<br />
+</body>
+</html>
